@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Automatic Travel Planner (Free Map)</title>
+  <link rel="stylesheet" href="style.css">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css"/>
+</head>
+<body>
+  <div class="planner">
+    <h1>Automatic Travel Planner</h1>
+
+    <!-- Step 1: Basic Info -->
+    <section class="step active" id="step1">
+      <h2>Step 1: Basic Info</h2>
+      <label>Destination: <input type="text" id="destination" placeholder="e.g. Tokyo, Japan"></label>
+      <label>Start Date: <input type="date" id="startDate"></label>
+      <label>End Date: <input type="date" id="endDate"></label>
+      <label>Travelers: <input type="number" id="travelers" min="1" value="1"></label>
+      <button class="next">Next</button>
+    </section>
+
+    <!-- Step 2: Preferences -->
+    <section class="step" id="step2">
+      <h2>Step 2: Preferences</h2>
+      <label>Budget:
+        <select id="budget">
+          <option value="economy">Economy</option>
+          <option value="mid">Mid-range</option>
+          <option value="luxury">Luxury</option>
+        </select>
+      </label>
+      <label>Travel Pace:
+        <select id="pace">
+          <option value="relaxed">Relaxed</option>
+          <option value="balanced">Balanced</option>
+          <option value="adventurous">Adventurous</option>
+        </select>
+      </label>
+      <fieldset>
+        <legend>Interests:</legend>
+        <label><input type="checkbox" value="Nature"> Nature</label>
+        <label><input type="checkbox" value="Culture"> Culture</label>
+        <label><input type="checkbox" value="Food"> Food</label>
+        <label><input type="checkbox" value="Shopping"> Shopping</label>
+      </fieldset>
+      <button class="back">Back</button>
+      <button class="next">Next</button>
+    </section>
+
+    <!-- Step 3: Itinerary -->
+    <section class="step" id="step3">
+      <h2>Step 3: Itinerary & Route</h2>
+      <div id="itinerary"></div>
+      <div id="map"></div>
+      <button class="back">Back</button>
+      <button id="export">Export Plan</button>
+      <button id="reset">Reset</button>
+    </section>
+  </div>
+
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+  
+  <!-- Your Script -->
+  <script src="script.js"></script>
+</body>
+</html>
